@@ -1,0 +1,27 @@
+<div class="user-section">
+  <h1> {{ userName }} </h1>
+  <p> {{ identification }} </p>
+</div>
+
+<div class="container">
+  <h2 style="text-align:center">Contratos</h2>
+</div>
+
+<div class="contratos">
+  <div *ngFor="let contra of contracts">
+    <app-card
+      [name]="contra['agreement']"
+      [canton]="contra['canton']"
+      [direccion]="contra['street']"
+      [estado]="contra['state']"
+      [saldoPagar]="contra['valor']"
+      [ultraPuntos]="contra['ultrapuntos']"
+      [partner_id]="contra['partner_id']"
+      [identification]="contra['identification']"
+      [partner]="contra['partner']"
+      [agreement_id]="contra['agreement_id']"
+      [type_service]="contra['type_service']"
+      [company]="contra['company']"
+    ></app-card>
+  </div>
+</div>

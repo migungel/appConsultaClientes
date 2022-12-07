@@ -1,0 +1,18 @@
+<div class="contract">
+  <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+  <h3 class="title">Contrato {{ name }} </h3>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"> Dirección: {{ direccion }} </li>
+    <li class="list-group-item"> Cantón: {{ canton }} </li>
+    <li class="list-group-item"> Estado: {{ estado }} </li>
+    <li class="list-group-item"> Código de pago: {{ cod }} </li>
+    <li class="list-group-item"> Saldo a pagar: {{ saldoPagar }} </li>
+    <li class="list-group-item"> Ultra Puntos: {{ ultraPuntos }} </li>
+  </ul>
+  <button (click)="details()" type="button" class="btn">Detalles</button>
+  <!-- <button (click)="details()" type="button" class="btn btn-primary mt-2 mb-3 btn-rounded waves-effect w-md waves-light">Detalles</button> -->
+  <!-- <div class="card-body">
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+  </div> -->
+</div>

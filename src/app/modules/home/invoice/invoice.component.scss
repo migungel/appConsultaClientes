@@ -1,0 +1,52 @@
+input{
+  max-width: 200px;
+}
+
+.invoices{
+  //border: 5px solid red;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  //grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  margin: 40px;
+}
+
+.register-invoices{
+  text-align: center;
+  margin-top: 10px;
+  color: red;
+}
+
+.navbar{
+  background-color: #3EB2E0;
+}
+
+.btn {
+  background-color:#53087D;
+	border: none;
+	display: inline-block;
+	cursor: pointer;
+	color:#ffffff;
+	font-family: Arial;
+	font-size:15px;
+	padding:8px 20px;
+}
+.btn:hover {
+	background-color: #4868B5;
+}
+.btn:active {
+	position:relative;
+	top:1px;
+}
+
+@media (max-width: 480px) {
+  .invoices{
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+@media (min-width: 481px) and (max-width: 1024px) {
+  .invoices{
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}

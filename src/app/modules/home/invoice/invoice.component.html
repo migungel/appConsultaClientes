@@ -1,0 +1,24 @@
+<nav class="navbar navbar-light justify-content-center">
+  <form class="form-inline">
+    <input class="form-control mr-sm-2" [(ngModel)]="selectYear" name="search" type="search" placeholder="Año" aria-label="Search" required>
+    <button class="btn my-2 my-sm-0" type="submit" (click)="search()">Buscar</button>
+  </form>
+</nav>
+
+<div class="">
+  <p *ngIf="invoicesEmpty" class="register-invoices">*No existen registros con ese año*</p>
+  <div class="invoices">
+    <div *ngFor="let inv of invoices">
+      <app-info-invoice
+        [invoice_id]="inv['invoice_id']"
+        [invoice]="inv['invoice']"
+        [date]="inv['fecha']"
+        [state]="inv['state']"
+        [auth]="inv['autorizacion']"
+        [pdf]="inv['pdf']"
+        [xml]="inv['xml']"
+      ></app-info-invoice>
+    </div>
+  </div>
+</div>
+
