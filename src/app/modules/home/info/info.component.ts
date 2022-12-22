@@ -43,7 +43,7 @@ export class InfoComponent implements OnInit {
   startValues(){
     this.services.verifyToken().subscribe(
       res => {
-        console.log(res);
+        //console.log(res);
         this.userName = res.name;
         this.identification = res.identification;
         this.dataPartner(res);
@@ -54,6 +54,7 @@ export class InfoComponent implements OnInit {
   dataPartner(data: any){
     this.services.getData(data).subscribe(
       res => {
+        //console.log(res);
         this.contracts = res;
       }
     );

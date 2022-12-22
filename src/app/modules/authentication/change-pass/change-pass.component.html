@@ -4,6 +4,15 @@
     <div class="row">
       <p class="text-center">Utilice el siguiente formulario para cambiar su contraseña.</p>
       <form class="formlogin" id="passwordForm" [formGroup]="passForm" (ngSubmit)="changePass()">
+        <div *ngIf="show"
+        class='alert alert-danger alert-dismissible fade show'
+        [ngClass]="{ 'alert-danger': error, 'alert-success': !error }"
+        role="alert">
+        <strong>{{alert_msg}}</strong>
+        <button (click)="closeAlert()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
         <div class="input-group">
           <input [type]="changeType?'password':'text'" class="form-control pwd1" formControlName="password1" placeholder="New Password" autocomplete="off" (change)="hasChange=true">
           <div class="input-group-append">

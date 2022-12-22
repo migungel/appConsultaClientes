@@ -2,13 +2,24 @@
   background-color: transparent;
   border: none;
   color: rgb(0, 0, 0);
-  width: 18rem;
+  max-width: 28rem;
 }
 
-@media (max-width: 480px){
-  .card{
-    width: 12rem;
-  }
+.oddTag{
+    background-color: rgb(238, 238, 238);
+}
+
+//@media (max-width: 480px){
+//  .card{
+//    width: 12rem;
+//  }
+//}
+
+.buttons{
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .close {

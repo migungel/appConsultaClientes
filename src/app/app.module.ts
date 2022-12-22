@@ -6,7 +6,7 @@ import { SpinnerModule } from './modules/spinner/spinner.module';
 import { LoginComponent } from './modules/authentication/login/login.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -33,7 +33,8 @@ import { MatIconModule } from '@angular/material/icon';
     LoginComponent,
     RegisterComponent,
     HeaderComponent,
-    ChangePassComponent
+    ChangePassComponent,
+    PopOrderComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +44,7 @@ import { MatIconModule } from '@angular/material/icon';
     HttpClientModule,
     BrowserAnimationsModule,
     NgbModule,
+    CommonModule,
     MatDialogModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
@@ -55,7 +57,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatButtonModule,
     MatInputModule,
     MatRippleModule,
-    MatIconModule,
+    MatIconModule
   ],
   providers: [
     {

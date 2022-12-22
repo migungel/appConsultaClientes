@@ -18,6 +18,6 @@ export class PartnersService {
   }
 
   changepass(partner: any){
-    return this.http.put(`${this.url}/changepass`, partner);
+    return this.http.put<any>(`${this.url}/changepass`, partner);
   }
 }

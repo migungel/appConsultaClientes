@@ -16,7 +16,7 @@ export class CardComponent implements OnInit {
   @Input() direccion: string = '';
   @Input() estado: string = '';
   @Input() saldoPagar: string = '';
-  @Input() ultraPuntos: string= '';
+  @Input() ultraPuntos: string = '0';
   @Input() partner_id: string= '';
   @Input() identification: string= '';
   @Input() partner: string= '';
@@ -24,6 +24,9 @@ export class CardComponent implements OnInit {
   @Input() type_service: string= '';
   @Input() company: string= '';
   cod: string = '';
+  code_dvtelevision = '45779';
+  code_transcorporacion = '65225';
+  code : string = '';
 
   constructor(
     private service: ServicesService,
@@ -32,26 +35,49 @@ export class CardComponent implements OnInit {
 
   ngOnInit(): void {
     this.cod = this.name.replace("OP","").replace("-","");
+    if (this.company == '1') {
+      this.code = this.code_dvtelevision;
+    } else if (this.company == '3') {
+      this.code = this.code_transcorporacion;
+    }
   }
 
   details(){
+    //console.log(this.agreement_id);
+    //this.openDialog(this.agreement_id);
     this.service.getOrders(this.agreement_id).subscribe(
       res => {
-        let orderClient = {
-          order_id: res.order_id,
-          order: res.order,
-          type_id: res.type_id,
-          type: res.type,
-          date: res.fecha,
-          date_execute: res.fecha_ejecutar,
-        };
-        this.dialogOrder.open(PopOrderComponent, {
-          data: orderClient,
-          backdropClass: 'backdropBackground',
-          panelClass: 'my-class'
-        } );
+        //console.log(res);
+        let orderClient;
+        if (res) {
+          orderClient = res;
+          // for (let i in res){
+          //   orderClient.push({
+          //     order_id: res.order_id,
+          //     order: res.order,
+          //     type_id: res.type_id,
+          //     type: res.type,
+          //     date: res.fecha,
+          //     date_execute: res.fecha_ejecutar,
+          //   });
+          // }
+        }
+        this.openDialog(orderClient);
       }
     );
+  }
+
+  openDialog(values: any){
+    this.dialogOrder.open(PopOrderComponent, {
+      data: values,
+      backdropClass: 'backdropBackground',
+      panelClass: 'my-class',
+      //height: '50%',
+      maxHeight: '500px',
+      //minHeight: '200px',
+      //height: '50%'
+    });
+
   }
 
 }

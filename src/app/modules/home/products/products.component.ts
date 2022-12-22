@@ -49,6 +49,7 @@ export class ProductsComponent implements OnInit {
   compare_products(products: any){
     this.service.getAllProducts().subscribe(
       res => {
+        //console.log(res);
         let product: any = {};
         for (const [key, value] of Object.entries(res)){
           product = {

@@ -1,9 +1,44 @@
-<div class="card">
-  <div class="card-body">
-    <h4 class="card-title">Nombre: {{ order }}</h4>
-    <p class="card-text">Tipo de servicio: {{ type }}</p>
-    <p class="card-text">Fecha: {{ date }}</p>
-    <p class="card-text">Fecha a ejecutar: {{ date_execute }}</p>
+<!-- <dx-popup
+  [width]="550"
+  [height]="350"
+  [visible]="true"
+  [showTitle]="false"
+  [hideOnOutsideClick]="false"
+>
+  <div *dxTemplate="let data of 'content'">
+    <dx-scroll-view width="100%" height="100%">
+      <div id="textBlock">
+        The <b>ScrollView</b> allows users to scroll its content vertically. To
+        enable horizontal and vertical scrolling, set the
+        <b>direction</b> option to <i>&quot;both&quot;</i>. Horizontal scrolling
+        is available only if the content is wider than the <b>ScrollView</b>.
+        Otherwise, the content adapts to the widget&apos;s width.<br /><br />The
+        <b>ScrollView</b> uses native scrolling on most platforms, except
+        desktops. To use it on all platforms, assign <b>true</b> to the
+        <b>useNative</b> option. If you assign <b>false</b>, scrolling is
+        simulated on all platforms.
+      </div>
+    </dx-scroll-view>
   </div>
-  <button (click)="closeDialog()"  type="button" class="close mt-2 mb-1">Cerrar</button>
+</dx-popup> -->
+
+<div class="card">
+  <div class="found" *ngIf="data">
+    <div *ngFor="let or of orders; let i = index" [attr.data-index]="i">
+      <div class="card-body" [ngClass]="{ 'oddTag': i % 2 != 0 }">
+        <h4 class="card-title">Nombre: {{ or['order'] }} </h4>
+        <h4 class="card-title">Nombre: {{i}} </h4>
+        <p class="card-text">Tipo de servicio: {{ or['type'] }}</p>
+        <p class="card-text">Fecha: {{ or['fecha'] }}</p>
+        <p class="card-text">Fecha a ejecutar: {{ or['fecha_ejecutar'] }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="notFound" *ngIf="!data">
+    <h2>No existen datos</h2>
+  </div>
+  <div class="buttons text-center mt-1 mb-1">
+    <button (click)="closeDialog()" type="button" class="close">Cerrar</button>
+  </div>
 </div>
+

@@ -33,7 +33,7 @@ export class AppComponent {
       res => {
         //console.log(res)
         const token = JSON.parse(JSON.stringify(res));
-        console.log(token)
+        //console.log(token)
         this.notification.saveToken(token).subscribe(
           res => {
             //console.log(res);
@@ -45,7 +45,7 @@ export class AppComponent {
       }
     ).catch(
       err => {
-        console.log(err)
+        //console.log(err)
       }
     );
   }

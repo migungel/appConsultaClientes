@@ -20,6 +20,9 @@ export class ChangePassComponent implements OnInit {
   visible: boolean = true;
   changeType: boolean = true;
   identification: string = '';
+  show: boolean = false;
+  alert_msg: string = '';
+  error: boolean = false;
 
   //newPass: string = "";
   //repeatPass: string = "";
@@ -61,7 +64,9 @@ export class ChangePassComponent implements OnInit {
 
     this.partners.changepass(user).subscribe(
       res => {
-        console.log(res);
+        this.passForm.reset();
+        this.error = false;
+        this.showMsg(res["message"].toString());
       }
     );
 
@@ -100,5 +105,12 @@ export class ChangePassComponent implements OnInit {
   getHasChange(){
     return !this.hasChange;
   }
+
+  showMsg(msg: string){
+    this.show = true;
+    this.alert_msg = msg;
+  }
+
+  closeAlert(){ this.show = false}
 
 }
